@@ -20,7 +20,7 @@ The documented Loan Agency domain covers:
 
 ## Architecture
 
-\`\`\`text
+```text
 FastAPI application
   ├─ Core configuration and security
   ├─ Authentication and tenancy context
@@ -32,56 +32,56 @@ FastAPI application
        ├─ SQLAlchemy models
        ├─ Database access
        └─ Audit / response helpers
-\`\`\`
+```
 
 ## Key directories
 
 | Path | Responsibility |
 | --- | --- |
-| \`backend/main.py\` | FastAPI application entry point |
-| \`backend/core/\` | Configuration, database, security, tenant context |
-| \`backend/loan_agency/\` | Loan domain routes, rules, models, services |
-| \`backend/common/\` | Shared API, audit, storage, and usage helpers |
-| \`alembic/\` | Database migration definitions |
-| \`tests/\` | Test suite |
-| \`docs/\` | API and data documentation |
+| `backend/main.py` | FastAPI application entry point |
+| `backend/core/` | Configuration, database, security, tenant context |
+| `backend/loan_agency/` | Loan domain routes, rules, models, services |
+| `backend/common/` | Shared API, audit, storage, and usage helpers |
+| `alembic/` | Database migration definitions |
+| `tests/` | Test suite |
+| `docs/` | API and data documentation |
 
 ## Local development
 
 Requires Python 3.10+ and a compatible database setup.
 
-\`\`\`bash
+```bash
 git clone https://github.com/jjckarthikeyan-dot/scadova-ai-india.git
 cd scadova-ai-india
 python -m venv .venv
-\`\`\`
+```
 
 Activate the environment:
 
-- macOS/Linux: \`source .venv/bin/activate\`
-- Windows PowerShell: \`.venv\Scripts\Activate.ps1\`
+- macOS/Linux: `source .venv/bin/activate`
+- Windows PowerShell: `.venv\Scripts\Activate.ps1`
 
 Then:
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
 cp .env.example .env
-\`\`\`
+```
 
-Review and configure the values in \`.env\`. Never commit real keys or customer information.
+Review and configure the values in `.env`. Never commit real keys or customer information.
 
-\`\`\`bash
+```bash
 alembic upgrade head
 uvicorn backend.main:app --reload
-\`\`\`
+```
 
 Local documentation is expected at http://localhost:8000/docs when the application starts successfully.
 
 ## Testing
 
-\`\`\`bash
+```bash
 pytest -v
-\`\`\`
+```
 
 Run the suite locally or in CI before reporting a passing test count. No passing-test claim is made in this document without current execution evidence.
 
